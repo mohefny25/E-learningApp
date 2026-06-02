@@ -41,6 +41,7 @@ dependencies:
   supabase_flutter: ^2.12.4
   video_player: ^2.10.1
   flick_video_player: ^0.9.0
+  equatable: ^2.0.8
 
 dev_dependencies:
   flutter_test:
