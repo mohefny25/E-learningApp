@@ -5,17 +5,14 @@ import 'package:your_academy/core/routing/app_router.dart';
 import 'package:your_academy/core/routing/routes.dart';
 import 'package:your_academy/core/theme/app_themes.dart';
 import 'package:your_academy/core/widgets/bloc_observer.dart';
-import 'package:your_academy/features/auth/presentation/screens/login_screen.dart';
-import 'package:your_academy/features/auth/presentation/screens/signup_screen.dart';
-import 'package:your_academy/features/home/presentation/screens/home_screen.dart';
-import 'package:your_academy/features/layout/presentation/screens/layout_screen.dart';
-import 'package:your_academy/features/my_courses/data/repo/my_courses_repo.dart';
+
+//طريقة إضافة video من drive
 //http://drive.google.com/uc?export=download&id=(اكتب هنا id)
-void main()async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
- await SupabaseServices.init();
+  await SupabaseServices.init();
   runApp(const MyApp());
-  Bloc.observer=SimpleBlocObserver();
+  Bloc.observer = SimpleBlocObserver();
 }
 
 class MyApp extends StatelessWidget {
@@ -30,7 +27,6 @@ class MyApp extends StatelessWidget {
       theme: AppThemes.lightTheme,
       onGenerateRoute: AppRouter().generateRoute,
       initialRoute: AppRoutes.signUpScreen,
-      //home: HomeScreen(),
     );
   }
 }
