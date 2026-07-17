@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../constants/app_colors.dart';
+import '../theme/app_radius.dart';
 
 class CustomTextFormField extends StatefulWidget {
-
   final String label;
   final String? hint;
   final TextEditingController? controller;
@@ -19,11 +19,11 @@ class CustomTextFormField extends StatefulWidget {
   final Widget? prefixIcon;
   final Widget? suffixIcon;
   final bool isSearch;
-  final  Color iconColor;
+  final Color iconColor;
   final bool isPrefixIcon;
 
-  CustomTextFormField({
-    Key? key,
+  const CustomTextFormField({
+    super.key,
     required this.label,
     this.hint,
     this.prefixIcon,
@@ -35,14 +35,14 @@ class CustomTextFormField extends StatefulWidget {
     this.focusedBorderColor = const Color(0xFF3F80FF),
     this.errorBorderColor = const Color(0xFFFF3B30),
     this.fillColor = AppColors.textFormFieldBackground,
-    this.borderRadius = 12.0,
+    this.borderRadius = AppRadius.r12,
     this.borderWidth = 1.0,
     this.contentPadding,
     this.suffixIcon,
     this.isSearch = false,
     this.iconColor = AppColors.iconColor,
-    this.isPrefixIcon = true
-  }) : super(key: key);
+    this.isPrefixIcon = true,
+  });
 
   @override
   State<CustomTextFormField> createState() => _CustomTextFormFieldState();
@@ -52,13 +52,12 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
   late bool _obscureText;
   @override
   void initState() {
-    _obscureText=widget.isPassword;
+    _obscureText = widget.isPassword;
     super.initState();
   }
+
   @override
   Widget build(BuildContext context) {
-    double height = MediaQuery.of(context).size.height;
-    double width = MediaQuery.of(context).size.width;
     return TextFormField(
       controller: widget.controller,
       obscureText: _obscureText,
@@ -68,22 +67,23 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
       decoration: InputDecoration(
         labelText: widget.label,
         hintText: widget.hint,
-        prefixIcon: widget.isPrefixIcon?
-        widget.prefixIcon:
-        null,
-        suffixIcon: widget.isSearch?
-            null
-            :widget.isPassword ?
-        GestureDetector(
-            onTap: () {
-              setState(() {
-                _obscureText = !_obscureText;
-              });
-            },
-            child: _obscureText ? Icon(Icons.visibility) : Icon(
-                Icons.visibility_off))
-            : null
-            ,
+        prefixIcon: widget.isPrefixIcon ? widget.prefixIcon : null,
+        suffixIcon:
+            widget.isSearch
+                ? null
+                : widget.isPassword
+                ? GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      _obscureText = !_obscureText;
+                    });
+                  },
+                  child:
+                      _obscureText
+                          ? Icon(Icons.visibility)
+                          : Icon(Icons.visibility_off),
+                )
+                : null,
         labelStyle: TextStyle(
           fontFamily: 'Poppins',
           fontSize: 14,
@@ -133,10 +133,8 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
         ),
         fillColor: widget.fillColor,
         filled: true,
-        contentPadding: widget.contentPadding ?? EdgeInsets.symmetric(
-          horizontal: 14,
-
-        ),
+        contentPadding:
+            widget.contentPadding ?? EdgeInsets.symmetric(horizontal: 14),
       ),
       style: TextStyle(
         fontFamily: 'Poppins',

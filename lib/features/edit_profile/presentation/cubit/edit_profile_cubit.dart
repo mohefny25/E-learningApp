@@ -5,7 +5,7 @@ import 'package:your_academy/features/edit_profile/presentation/cubit/edit_profi
 
 class EditProfileCubit extends Cubit<EditProfileState> {
   EditProfileCubit({required this.editProfileRepo})
-      : super(EditProfileInitialStates());
+    : super(EditProfileInitialStates());
 
   final EditProfileRepo editProfileRepo;
   static EditProfileCubit get(context) => BlocProvider.of(context);
@@ -25,18 +25,15 @@ class EditProfileCubit extends Cubit<EditProfileState> {
     emit(UpdateNameAndEmailLoadingStates());
 
     final result = await editProfileRepo.updateNameAndEmail(
-        newName.trim(),
-        newEmail.trim()
+      newName.trim(),
+      newEmail.trim(),
     );
 
-    result.fold(
-
-          (error) {
-            if (kDebugMode) {
-              print('ERROR from Supabase: $error');
-            }
-            emit(UpdateNameAndEmailErrorStates(error: error));},
-          (_) => emit(UpdateNameAndEmailSuccessStates()),
-    );
+    result.fold((error) {
+      if (kDebugMode) {
+        print('ERROR from Supabase: $error');
+      }
+      emit(UpdateNameAndEmailErrorStates(error: error));
+    }, (_) => emit(UpdateNameAndEmailSuccessStates()));
   }
 }

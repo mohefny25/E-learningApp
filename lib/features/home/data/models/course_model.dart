@@ -1,4 +1,4 @@
-class CourseModel{
+class CourseModel {
   final String id;
   final String image;
   final String title;
@@ -9,17 +9,15 @@ class CourseModel{
     required this.image,
     required this.price,
     required this.title,
-    required this.desc
-});
-  factory CourseModel.fromJson(Map<String,dynamic>json){
+    required this.desc,
+  });
+  factory CourseModel.fromJson(Map<String, dynamic> json) {
     return CourseModel(
-        id: json['id'],
-        image: json['image'],
-        price: json['price'],
-        title: json['title'],
-        desc: json['desc']
+      id: json['id'],
+      image: json['image'],
+      price: json['price'],
+      title: json['title'],
+      desc: json['desc'],
     );
   }
-
-
 }

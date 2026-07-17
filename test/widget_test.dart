@@ -1,30 +1,48 @@
-// This is a basic Flutter widget test.
+// Minimal smoke test for YOUR ACADEMY.
 //
-// To perform an interaction with a widget in your test, use the WidgetTester
-// utility in the flutter_test package. For example, you can send tap and scroll
-// gestures. You can also use WidgetTester to find child widgets in the widget
-// tree, read text, and verify that the values of widget properties are correct.
+// Verifies that the localization stack is wired correctly (English & Arabic
+// resolve) and that the brand name is never translated. This replaces the
+// default `flutter create` counter template, which never matched this app.
 
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-
-import 'package:your_academy/main.dart';
+import 'package:your_academy/core/constants/app_strings.dart';
+import 'package:your_academy/l10n/app_localizations.dart';
 
 void main() {
-  testWidgets('Counter increments smoke test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(const MyApp());
+  Future<AppLocalizations> pumpAndReadL10n(
+    WidgetTester tester,
+    Locale locale,
+  ) async {
+    late AppLocalizations l10n;
+    await tester.pumpWidget(
+      MaterialApp(
+        locale: locale,
+        localizationsDelegates: AppLocalizations.localizationsDelegates,
+        supportedLocales: AppLocalizations.supportedLocales,
+        home: Builder(
+          builder: (context) {
+            l10n = AppLocalizations.of(context)!;
+            return const SizedBox();
+          },
+        ),
+      ),
+    );
+    return l10n;
+  }
 
-    // Verify that our counter starts at 0.
-    expect(find.text('0'), findsOneWidget);
-    expect(find.text('1'), findsNothing);
+  testWidgets('English localization resolves core strings', (tester) async {
+    final l10n = await pumpAndReadL10n(tester, const Locale('en'));
+    expect(l10n.login, 'Login');
+    expect(l10n.profile, 'Profile');
+  });
 
-    // Tap the '+' icon and trigger a frame.
-    await tester.tap(find.byIcon(Icons.add));
-    await tester.pump();
+  testWidgets('Arabic localization resolves core strings', (tester) async {
+    final l10n = await pumpAndReadL10n(tester, const Locale('ar'));
+    expect(l10n.login, 'تسجيل الدخول');
+  });
 
-    // Verify that our counter has incremented.
-    expect(find.text('0'), findsNothing);
-    expect(find.text('1'), findsOneWidget);
+  test('brand name is never translated', () {
+    expect(AppStrings.appName, 'YOUR ACADEMY');
   });
 }

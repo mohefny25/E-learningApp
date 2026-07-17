@@ -1,4 +1,5 @@
-abstract class LayoutState{}
+abstract class LayoutState {}
 
-class InitialBotNavIndexState extends LayoutState{}
-class ChangeBotNavIndexState extends LayoutState{}
+class InitialBotNavIndexState extends LayoutState {}
+
+class ChangeBotNavIndexState extends LayoutState {}

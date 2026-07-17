@@ -3,41 +3,27 @@ import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthRepo {
-
   final SupabaseClient supabase = Supabase.instance.client;
 
   Future<Either<String, void>> signin({
     required String email,
     required String password,
-
   }) async {
-
     try {
-
-      await supabase.auth.signInWithPassword(
-        email: email,
-        password: password,
-      );
+      await supabase.auth.signInWithPassword(email: email, password: password);
 
       return right(null);
-
     } on AuthException catch (e) {
       if (kDebugMode) {
         print(e.toString());
-
-
       }
 
       return left(e.message);
-
     } catch (e) {
       if (kDebugMode) {
         print(e.toString());
-
-
       }
       return left(e.toString());
-
     }
   }
 
@@ -46,9 +32,7 @@ class AuthRepo {
     required String password,
     required String name,
   }) async {
-
     try {
-
       final response = await supabase.auth.signUp(
         email: email,
         password: password,
@@ -60,22 +44,13 @@ class AuthRepo {
         return left("User creation failed");
       }
 
-      final result = await saveUserData(
-        id: user.id,
-        name: name,
-        email: email,
-      );
+      final result = await saveUserData(id: user.id, name: name, email: email);
 
       return result;
-
     } on AuthException catch (e) {
-
       return left(e.message);
-
     } catch (e) {
-
       return left(e.toString());
-
     }
   }
 
@@ -84,22 +59,16 @@ class AuthRepo {
     required String name,
     required String email,
   }) async {
-
     try {
-      await supabase
-          .from('users')
-          .insert({
+      await supabase.from('users').insert({
         'id': id,
         'name': name,
         'email': email,
       });
 
       return right(null);
-
     } catch (e) {
-
       return left(e.toString());
-
     }
   }
 }

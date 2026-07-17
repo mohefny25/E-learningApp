@@ -7,12 +7,18 @@ import 'package:your_academy/core/widgets/custom_text_form_field.dart';
 import 'package:your_academy/features/edit_profile/data/repo/edit_profile_repo/edit_profile_repo.dart';
 import 'package:your_academy/features/edit_profile/presentation/cubit/edit_profile_cubit.dart';
 import 'package:your_academy/features/edit_profile/presentation/cubit/edit_profile_states.dart';
+import 'package:your_academy/l10n/app_localizations.dart';
 
 import '../../../../core/constants/app_colors.dart';
 import '../../../../core/theme/text_styles.dart';
 
 class EditProfileScreen extends StatelessWidget {
-  EditProfileScreen({super.key, required this.name, required this.email, required this.password});
+  const EditProfileScreen({
+    super.key,
+    required this.name,
+    required this.email,
+    required this.password,
+  });
 
   final String name;
   final String email;
@@ -21,14 +27,8 @@ class EditProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => EditProfileCubit(
-        editProfileRepo: EditProfileRepo(),
-      ),
-      child: EditProfileView(
-        name: name,
-        email: email,
-        password: password,
-      ),
+      create: (context) => EditProfileCubit(editProfileRepo: EditProfileRepo()),
+      child: EditProfileView(name: name, email: email, password: password),
     );
   }
 }
@@ -49,18 +49,20 @@ class EditProfileView extends StatelessWidget {
   Widget build(BuildContext context) {
     double height = MediaQuery.sizeOf(context).height;
     double width = MediaQuery.sizeOf(context).width;
+    final l10n = AppLocalizations.of(context)!;
 
-    final TextEditingController nameController = TextEditingController(text: name);
-    final TextEditingController emailController = TextEditingController(text: email);
+    final TextEditingController nameController = TextEditingController(
+      text: name,
+    );
+    final TextEditingController emailController = TextEditingController(
+      text: email,
+    );
     // final TextEditingController passwordController = TextEditingController(text: password);
 
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColors.primaryColor,
-        title: Text(
-          'Edit Profile',
-          style: AppTextStyles.s20w700(context),
-        ),
+        title: Text(l10n.editProfile, style: AppTextStyles.s20w700(context)),
         centerTitle: true,
         leading: InkWell(
           onTap: () {
@@ -74,10 +76,10 @@ class EditProfileView extends StatelessWidget {
           if (state is UpdateNameAndEmailSuccessStates) {
             // Show success message
             ScaffoldMessenger.of(context).showSnackBar(
-              const SnackBar(
-                content: Text('Profile updated successfully!'),
+              SnackBar(
+                content: Text(l10n.profileUpdatedSuccess),
                 backgroundColor: Colors.green,
-                duration: Duration(seconds: 2),
+                duration: const Duration(seconds: 2),
               ),
             );
             // Go back to previous screen
@@ -106,12 +108,7 @@ class EditProfileView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Gap(height * 0.02),
-                  const Row(
-                    children: [
-                      Gap(2),
-                      Text('Name'),
-                    ],
-                  ),
+                  Row(children: [const Gap(2), Text(l10n.name)]),
                   Gap(height * 0.01),
                   CustomTextFormField(
                     label: '',
@@ -119,12 +116,7 @@ class EditProfileView extends StatelessWidget {
                     controller: nameController,
                   ),
                   Gap(height * 0.04),
-                  const Row(
-                    children: [
-                      Gap(2),
-                      Text("Email"),
-                    ],
-                  ),
+                  Row(children: [const Gap(2), Text(l10n.email)]),
                   Gap(height * 0.01),
                   CustomTextFormField(
                     controller: emailController,
@@ -136,12 +128,13 @@ class EditProfileView extends StatelessWidget {
                     const Center(child: CircularProgressIndicator())
                   else
                     CustomButton(
-                      text: 'Save Changes',
+                      text: l10n.saveChanges,
                       onPressed: () {
                         if (kDebugMode) {
                           print('Email = "${emailController.text}"');
-                          print('Trimmed Email = "${emailController.text.trim()}"');
-
+                          print(
+                            'Trimmed Email = "${emailController.text.trim()}"',
+                          );
                         }
 
                         cubit.updateNameAndEmail(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../constants/app_colors.dart';
+import '../theme/app_radius.dart';
 
 class CustomButton extends StatelessWidget {
   final String text;
@@ -21,14 +22,14 @@ class CustomButton extends StatelessWidget {
   final bool isProfile;
   final bool isLogOut;
 
-   const CustomButton({
+  const CustomButton({
     super.key,
     required this.text,
     required this.onPressed,
     this.borderColor = AppColors.borderColor,
     this.textColor = Colors.white,
     this.backgroundColor = AppColors.primaryColor,
-    this.borderRadius = 12.0,
+    this.borderRadius = AppRadius.r12,
     this.borderWidth = 1.0,
     this.fontSize = 14,
     this.padding,
@@ -37,20 +38,23 @@ class CustomButton extends StatelessWidget {
     this.isLoading = false,
     this.isDisabled = false,
     this.height = 30,
-     this.isSmall = false,
-     this.isProfile = false,
-     this.isLogOut = false,
+    this.isSmall = false,
+    this.isProfile = false,
+    this.isLogOut = false,
   });
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width;
-
     return OutlinedButton(
       onPressed: (isDisabled || isLoading) ? null : onPressed,
       style: OutlinedButton.styleFrom(
-        backgroundColor: isLogOut?Color(0xffF1F5F9):isProfile?AppColors.profileSecondaryColor:backgroundColor,
-        foregroundColor: isLogOut?Colors.red:textColor,
+        backgroundColor:
+            isLogOut
+                ? Color(0xffF1F5F9)
+                : isProfile
+                ? AppColors.profileSecondaryColor
+                : backgroundColor,
+        foregroundColor: isLogOut ? Colors.red : textColor,
         side: BorderSide(
           color: isDisabled ? Colors.grey : borderColor,
           width: borderWidth,
@@ -58,44 +62,49 @@ class CustomButton extends StatelessWidget {
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(borderRadius),
         ),
-        padding: padding ?? EdgeInsets.symmetric(
-          horizontal: 16,
-          vertical: isSmall?6:12,
-        ),
+        padding:
+            padding ??
+            EdgeInsets.symmetric(horizontal: 16, vertical: isSmall ? 6 : 12),
         minimumSize: Size(double.infinity, height),
       ),
-      child: isLoading
-          ? SizedBox(
-        height: 18,
-        width: 18,
-        child: CircularProgressIndicator(
-          strokeWidth: 2,
-          valueColor: AlwaysStoppedAnimation<Color>(textColor),
-        ),
-      )
-          : Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          if (prefixIcon != null) ...[
-            prefixIcon!,
-            const SizedBox(width: 8),
-          ],
-          Text(
-            text,
-            style: TextStyle(
-              fontFamily: 'Poppins',
-              fontSize: fontSize,
-              fontWeight: isProfile?FontWeight.w600:FontWeight.w700,
-              color: isLogOut?Colors.red:isProfile?AppColors.primaryColor:textColor,
-            ),
-          ),
-          if (suffixIcon != null) ...[
-            const SizedBox(width: 8),
-            suffixIcon!,
-          ],
-        ],
-      ),
+      child:
+          isLoading
+              ? SizedBox(
+                height: 18,
+                width: 18,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2,
+                  valueColor: AlwaysStoppedAnimation<Color>(textColor),
+                ),
+              )
+              : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  if (prefixIcon != null) ...[
+                    prefixIcon!,
+                    const SizedBox(width: 8),
+                  ],
+                  Text(
+                    text,
+                    style: TextStyle(
+                      fontFamily: 'Poppins',
+                      fontSize: fontSize,
+                      fontWeight: isProfile ? FontWeight.w600 : FontWeight.w700,
+                      color:
+                          isLogOut
+                              ? Colors.red
+                              : isProfile
+                              ? AppColors.primaryColor
+                              : textColor,
+                    ),
+                  ),
+                  if (suffixIcon != null) ...[
+                    const SizedBox(width: 8),
+                    suffixIcon!,
+                  ],
+                ],
+              ),
     );
   }
 }

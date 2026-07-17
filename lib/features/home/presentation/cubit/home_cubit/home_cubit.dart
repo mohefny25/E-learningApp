@@ -4,25 +4,18 @@ import 'package:your_academy/features/home/presentation/cubit/home_cubit/home_st
 
 class HomeCubit extends Cubit<HomeState> {
   final HomeRepo homeRepo;
-  HomeCubit(this.homeRepo): super(InitialHomeState());
+  HomeCubit(this.homeRepo) : super(InitialHomeState());
 
-  Future<void> getCourses()async{
+  Future<void> getCourses() async {
     emit(LoadingHomeState());
     final response = await homeRepo.getCourses();
     response.fold(
-        (errMsg){
-          emit(ErrorHomeState(error: errMsg));},
-        (courses){
-          emit(SuccessHomeState(courses: courses));
-        }
-    );
-  }
-  Future<void> getUsers()async{
-    emit(LoadingUserState());
-    final response = await homeRepo.getUserDetails();
-    response.fold(
-        (errMsg){emit(ErrorUserState(error: errMsg));},
-        (users){emit(SuccessUserState(users: users));}
+      (errMsg) {
+        emit(ErrorHomeState(error: errMsg));
+      },
+      (courses) {
+        emit(SuccessHomeState(courses: courses));
+      },
     );
   }
 }
