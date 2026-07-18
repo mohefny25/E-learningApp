@@ -60,9 +60,6 @@ ios/Flutter/Flutter.podspec
 ios/Flutter/Generated.xcconfig
 ios/Flutter/ephemeral/
 
-# Web build output
-web/
-
 # macOS build output
 macos/Flutter/ephemeral/
 macos/Flutter/Flutter-Debug.xcconfig
@@ -77,3 +74,11 @@ linux/flutter/ephemeral/
 # Testing
 coverage/
 *.gcov
+
+# Local environment config — holds real Supabase credentials, never commit it
+env.json
+
+# Internal / assistant working files — excluded from the published repository
+to_see.md
+CLAUDE.md
+.agents/

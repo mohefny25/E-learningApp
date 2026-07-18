@@ -188,7 +188,14 @@ class _SignupScreenState extends State<SignupScreen> {
                               Image.asset("assets/images/facebook.png"),
                               Gap(width * 0.1),
 
-                              Image.asset("assets/images/apple.png"),
+                              Image.asset(
+                                "assets/images/apple.png",
+                                color:
+                                    Theme.of(context).brightness ==
+                                            Brightness.dark
+                                        ? Colors.white
+                                        : null,
+                              ),
                             ],
                           ),
                           Gap(height * 0.04),

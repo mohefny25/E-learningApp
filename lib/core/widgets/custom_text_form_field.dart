@@ -80,8 +80,16 @@ class _CustomTextFormFieldState extends State<CustomTextFormField> {
                   },
                   child:
                       _obscureText
-                          ? Icon(Icons.visibility)
-                          : Icon(Icons.visibility_off),
+                          ? Icon(Icons.visibility,color:
+                      Theme.of(context).brightness ==
+                          Brightness.dark
+                          ? Colors.blueGrey
+                          : null,)
+                          : Icon(Icons.visibility_off,color:
+                      Theme.of(context).brightness ==
+                      Brightness.dark
+                      ?Colors.blueGrey
+                      : null,),
                 )
                 : null,
         labelStyle: TextStyle(

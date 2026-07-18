@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gap/gap.dart';
@@ -57,7 +56,6 @@ class EditProfileView extends StatelessWidget {
     final TextEditingController emailController = TextEditingController(
       text: email,
     );
-    // final TextEditingController passwordController = TextEditingController(text: password);
 
     return Scaffold(
       appBar: AppBar(
@@ -130,13 +128,6 @@ class EditProfileView extends StatelessWidget {
                     CustomButton(
                       text: l10n.saveChanges,
                       onPressed: () {
-                        if (kDebugMode) {
-                          print('Email = "${emailController.text}"');
-                          print(
-                            'Trimmed Email = "${emailController.text.trim()}"',
-                          );
-                        }
-
                         cubit.updateNameAndEmail(
                           nameController.text.trim(),
                           emailController.text.trim(),

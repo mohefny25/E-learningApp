@@ -13,9 +13,7 @@ class LayoutScreen extends StatelessWidget {
     return BlocProvider(
       create: (context) => LayoutCubit(),
       child: BlocConsumer<LayoutCubit, LayoutState>(
-        listener: (context, state) {
-          // TODO: implement listener
-        },
+        listener: (context, state) {},
         builder: (context, state) {
           LayoutCubit cubit = LayoutCubit.get(context);
           final l10n = AppLocalizations.of(context)!;

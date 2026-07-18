@@ -41,12 +41,6 @@ class AppRouter {
             return MyCoursesScreen();
           },
         );
-      // case AppRoutes.courseVideosScreen:
-      //   final courseId = settings.arguments
-      //   return MaterialPageRoute(
-      //       builder: (context){
-      //         return CourseVideosScreen();
-      //       });
       case AppRoutes.courseDetailsScreen:
         final course = settings.arguments as CourseModel;
         return MaterialPageRoute(

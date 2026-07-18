@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class CourseDetailsRepo {
@@ -12,7 +11,6 @@ class CourseDetailsRepo {
       });
       return right(null);
     } catch (e) {
-      debugPrint(e.toString());
       return left(e.toString());
     }
   }

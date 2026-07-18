@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_academy/core/constants/app_strings.dart';
 import 'package:your_academy/core/localization/locale_cubit.dart';
@@ -13,8 +14,6 @@ import 'package:your_academy/core/theme/theme_states.dart';
 import 'package:your_academy/core/widgets/bloc_observer.dart';
 import 'package:your_academy/l10n/app_localizations.dart';
 
-//طريقة إضافة video من drive
-//http://drive.google.com/uc?export=download&id=(اكتب هنا id)
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await SupabaseServices.init();
@@ -27,6 +26,7 @@ void main() async {
       SupabaseServices.hasActiveSession
           ? AppRoutes.layoutScreen
           : AppRoutes.signUpScreen;
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.immersiveSticky);
   runApp(MyApp(initialRoute: initialRoute));
   Bloc.observer = SimpleBlocObserver();
 }

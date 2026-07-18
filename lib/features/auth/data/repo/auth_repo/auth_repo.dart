@@ -1,5 +1,4 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter/foundation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class AuthRepo {
@@ -14,15 +13,8 @@ class AuthRepo {
 
       return right(null);
     } on AuthException catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
-
       return left(e.message);
     } catch (e) {
-      if (kDebugMode) {
-        print(e.toString());
-      }
       return left(e.toString());
     }
   }

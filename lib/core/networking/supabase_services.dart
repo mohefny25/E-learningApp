@@ -1,8 +1,15 @@
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 class SupabaseServices {
-  static const String url = 'https://uumnjwrwdeveulglvnbm.supabase.co';
-  static const String apiKey = 'sb_publishable_13RTd3PMaHJ2je-VZOEY4w_Yr6ke7H4';
+  // Supplied at build/run time via --dart-define so credentials stay out of
+  // source control, e.g.:
+  //   flutter run \
+  //     --dart-define=SUPABASE_URL=https://<project>.supabase.co \
+  //     --dart-define=SUPABASE_ANON_KEY=<anon-or-publishable-key>
+  // The anon/publishable key is only safe to expose when Row Level Security
+  // (RLS) is enabled on all Supabase tables.
+  static const String url = String.fromEnvironment('SUPABASE_URL');
+  static const String apiKey = String.fromEnvironment('SUPABASE_ANON_KEY');
 
   static init() async {
     await Supabase.initialize(url: url, anonKey: apiKey);

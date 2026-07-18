@@ -40,9 +40,6 @@ class GridViewItem extends StatelessWidget {
         elevation: 2,
         child: Container(
           decoration: BoxDecoration(
-            // border: Border.all(
-            //   color: AppColors.borderColor
-            // ),
             borderRadius: BorderRadius.circular(AppRadius.r15),
           ),
           child: Padding(

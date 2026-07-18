@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:your_academy/features/edit_profile/data/repo/edit_profile_repo/edit_profile_repo.dart';
 import 'package:your_academy/features/edit_profile/presentation/cubit/edit_profile_states.dart';
@@ -29,11 +28,9 @@ class EditProfileCubit extends Cubit<EditProfileState> {
       newEmail.trim(),
     );
 
-    result.fold((error) {
-      if (kDebugMode) {
-        print('ERROR from Supabase: $error');
-      }
-      emit(UpdateNameAndEmailErrorStates(error: error));
-    }, (_) => emit(UpdateNameAndEmailSuccessStates()));
+    result.fold(
+      (error) => emit(UpdateNameAndEmailErrorStates(error: error)),
+      (_) => emit(UpdateNameAndEmailSuccessStates()),
+    );
   }
 }

@@ -1,5 +1,5 @@
 name: your_academy
-description: "A new Flutter project."
+description: "YOUR ACADEMY — a Flutter e-learning app with Supabase auth & data, Cubit/BLoC (MVVM), light/dark theming, and full English/Arabic (RTL) localization."
 # The following line prevents the package from being accidentally published to
 # pub.dev using `flutter pub publish`. This is preferred for private packages.
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
