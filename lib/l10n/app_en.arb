@@ -1,0 +1,90 @@
+{
+  "@@locale": "en",
+
+  "login": "Login",
+  "signUp": "Sign Up",
+  "signUpLink": "Sign up",
+  "logInLink": "Log In",
+  "email": "Email",
+  "password": "Password",
+  "fullName": "Full Name",
+  "enterYourEmail": "Enter your email",
+  "enterYourPassword": "Enter your password",
+  "enterYourFullName": "Enter your full Name",
+  "forgetPassword": "forget password",
+  "orContinueWith": "or continue with",
+  "orSignUpWith": "or sign up with",
+  "dontHaveAccount": "Don't have an account?",
+  "alreadyHaveAccount": "Already have an account?",
+  "pleaseEnterYourEmail": "please enter your email",
+  "pleaseEnterValidEmail": "please enter valid email",
+  "pleaseEnterYourPassword": "please enter your password",
+  "pleaseEnterYourName": "please enter your name",
+  "passwordTooShort": "your password must not be less than 6",
+  "success": "success",
+
+  "greeting": "Hi, {name}",
+  "@greeting": {
+    "placeholders": {
+      "name": { "type": "String" }
+    }
+  },
+  "welcomeMessage": "Welcome to {appName}",
+  "@welcomeMessage": {
+    "placeholders": {
+      "appName": { "type": "String" }
+    }
+  },
+  "searchHint": "what are you looking for?",
+  "guest": "Guest",
+  "noCoursesFound": "No courses found",
+  "home": "Home",
+  "myCourses": "My Courses",
+
+  "courseDetails": "Course Details",
+  "enrolledSuccess": "Enrolled Success",
+  "description": "Description",
+  "enrolled": "Enrolled",
+  "enrollCourse": "Enroll course",
+  "priceWithCurrency": "EGP {price}",
+  "@priceWithCurrency": {
+    "placeholders": {
+      "price": { "type": "String" }
+    }
+  },
+
+  "courseVideos": "course videos",
+  "noVideosYet": "No Videos yet",
+
+  "subscribedCourses": "Subscribed courses",
+  "notEnrolledYet": "Not Enrolled course yet",
+  "completeCourse": "complete course",
+  "somethingWrong": "Something wrong",
+
+  "profile": "Profile",
+  "noUserData": "No user data found",
+  "errorWithMessage": "Error: {message}",
+  "@errorWithMessage": {
+    "placeholders": {
+      "message": { "type": "String" }
+    }
+  },
+  "retry": "Retry",
+  "premiumMember": "Premium Member",
+  "accountSettings": "ACCOUNT SETTINGS",
+  "editProfile": "Edit Profile",
+  "changePassword": "Change Password",
+  "learning": "Learning",
+  "myCertificates": "My Certificates",
+  "purchaseHistory": "Purchase History",
+  "logOut": "Log Out",
+  "lightMode": "Light Mode",
+  "darkMode": "Dark Mode",
+  "english": "English",
+  "arabic": "العربية",
+
+  "showDetails": "Show Details",
+  "name": "Name",
+  "saveChanges": "Save Changes",
+  "profileUpdatedSuccess": "Profile updated successfully!"
+}
