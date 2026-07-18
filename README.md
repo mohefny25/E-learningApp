@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="docs/banner/banner.png" alt="YOUR ACADEMY Banner">
-</p>
 
 <h1 align="center">YOUR ACADEMY</h1>
 
@@ -197,62 +194,45 @@ lib
 
 # 📱 Screenshots
 
-### ☀️ Light Mode
+## ☀️ Light Mode
 
-| Login | Home | Course Details |
-|-------|------|----------------|
-| ![](docs/screenshots/light/Screenshot_20260718-141440.png) | ![](docs/screenshots/light/Screenshot_20260718-141448.png) | ![](docs/screenshots/light/Screenshot_20260718-141502.png) |
+| Login | Home |
+|-------|------|
+| ![](docs/screenshots/light/login.png) | ![](docs/screenshots/light/home.png) |
 
-| Course Videos | My Courses | Profile |
-|---------------|------------|----------|
-| ![](docs/screenshots/light/Screenshot_20260718-141511.png) | ![](docs/screenshots/light/Screenshot_20260718-141520.png) | ![](docs/screenshots/light/Screenshot_20260718-141530.png) |
+| My Courses | Profile |
+|------------|---------|
+| ![](docs/screenshots/light/my_courses.png) | ![](docs/screenshots/light/profile.png) |
 
----
-
----
-
-
-### 🌙 Dark Mode
-
-| Login | Home | Course Details |
-|-------|------|----------------|
-| ![](docs/screenshots/dark/Screenshot_20260718-141131.png) | ![](docs/screenshots/dark/Screenshot_20260718-141140.png) | ![](docs/screenshots/dark/Screenshot_20260718-141211.png) |
-
-| Course Videos | My Courses | Profile |
-|---------------|------------|----------|
-| ![](docs/screenshots/dark/Screenshot_20260718-141222.png) | ![](docs/screenshots/dark/Screenshot_20260718-141237.png) | ![](docs/screenshots/dark/Screenshot_20260718-141251.png) |
-
-| Edit Profile | Language |
-|--------------|----------|
-| ![](docs/screenshots/dark/Screenshot_20260718-141313.png) | ![](docs/screenshots/dark/Screenshot_20260718-141336.png) |
-
-
-
-docs/screenshots/light/login.png
-docs/screenshots/light/home.png
-docs/screenshots/light/course_details.png
-docs/screenshots/light/course_videos.png
-docs/screenshots/light/my_courses.png
-docs/screenshots/light/profile.png
-docs/screenshots/light/edit_profile.png
-
-docs/screenshots/dark/login.png
-docs/screenshots/dark/home.png
-docs/screenshots/dark/course_details.png
-docs/screenshots/dark/course_videos.png
-docs/screenshots/dark/my_courses.png
-docs/screenshots/dark/profile.png
-docs/screenshots/dark/edit_profile.png
-docs/screenshots/dark/language.png
-
+| Sign Up |
+|---------|
+| ![](docs/screenshots/light/sign_up.png) |
 
 ---
 
-# 🎥 Demo
 
-> Demo GIF will be added here.
 
----
+## 🌙 Dark Mode
+
+| Sign In | Sign Up |
+|---------|---------|
+| ![](docs/screenshots/dark/sign_in.png) | ![](docs/screenshots/dark/sign_up.png) |
+
+| Home | Course Videos |
+|------|---------------|
+| ![](docs/screenshots/dark/Home.png) | ![](docs/screenshots/dark/course_videos.png) |
+
+| Play Video | My Courses |
+|------------|------------|
+| ![](docs/screenshots/dark/play_video.png) | ![](docs/screenshots/dark/my_courses.png) |
+
+| Edit Profile | Profile (English) |
+|--------------|-------------------|
+| ![](docs/screenshots/dark/edit_profile.png) | ![](docs/screenshots/dark/profile_in_English.png) |
+
+| Profile (Arabic) |
+|------------------|
+| ![](docs/screenshots/dark/profile_in_arabic.png) |
 
 # 🚀 Getting Started
 
