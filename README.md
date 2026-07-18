@@ -197,15 +197,54 @@ lib
 
 # 📱 Screenshots
 
-## Light Theme
+### ☀️ Light Mode
 
-> Images will be added later.
+| Login | Home | Course Details |
+|-------|------|----------------|
+| ![](docs/screenshots/light/Screenshot_20260718-141440.png) | ![](docs/screenshots/light/Screenshot_20260718-141448.png) | ![](docs/screenshots/light/Screenshot_20260718-141502.png) |
+
+| Course Videos | My Courses | Profile |
+|---------------|------------|----------|
+| ![](docs/screenshots/light/Screenshot_20260718-141511.png) | ![](docs/screenshots/light/Screenshot_20260718-141520.png) | ![](docs/screenshots/light/Screenshot_20260718-141530.png) |
 
 ---
 
-## Dark Theme
+---
 
-> Images will be added later.
+
+### 🌙 Dark Mode
+
+| Login | Home | Course Details |
+|-------|------|----------------|
+| ![](docs/screenshots/dark/Screenshot_20260718-141131.png) | ![](docs/screenshots/dark/Screenshot_20260718-141140.png) | ![](docs/screenshots/dark/Screenshot_20260718-141211.png) |
+
+| Course Videos | My Courses | Profile |
+|---------------|------------|----------|
+| ![](docs/screenshots/dark/Screenshot_20260718-141222.png) | ![](docs/screenshots/dark/Screenshot_20260718-141237.png) | ![](docs/screenshots/dark/Screenshot_20260718-141251.png) |
+
+| Edit Profile | Language |
+|--------------|----------|
+| ![](docs/screenshots/dark/Screenshot_20260718-141313.png) | ![](docs/screenshots/dark/Screenshot_20260718-141336.png) |
+
+
+
+docs/screenshots/light/login.png
+docs/screenshots/light/home.png
+docs/screenshots/light/course_details.png
+docs/screenshots/light/course_videos.png
+docs/screenshots/light/my_courses.png
+docs/screenshots/light/profile.png
+docs/screenshots/light/edit_profile.png
+
+docs/screenshots/dark/login.png
+docs/screenshots/dark/home.png
+docs/screenshots/dark/course_details.png
+docs/screenshots/dark/course_videos.png
+docs/screenshots/dark/my_courses.png
+docs/screenshots/dark/profile.png
+docs/screenshots/dark/edit_profile.png
+docs/screenshots/dark/language.png
+
 
 ---
 
